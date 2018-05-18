@@ -6,31 +6,6 @@
   top: 50% !important;
   left: 50% !important;
   transform: translate(-50%, -50%);
-  border: solid 1px $color-primary !important;
-  background-color: rgba(86, 112, 136, 0.9) !important
-}
-
-.signin-table {
-  // border: solid 1px lightgrey ;
-
-  .row {
-    &.header {
-      font-weight: bold;
-    }
-    &:first-child {
-      .col {
-        border-top: solid 1px lightgrey;
-      }
-    }
-    .col {
-      border-bottom: solid 1px lightgrey;
-    }
-  }
-  .col {
-    line-height: 2;
-    &:first-child {
-      border-left: solid 1px lightgrey;
-    }
-    border-right: solid 1px lightgrey;
-  }
+  border: none !important;
+  background-color: white !important;
 }

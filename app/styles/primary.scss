@@ -2,6 +2,9 @@
 @import '_var-color';
 @import '_var-typography';
 @import '_helper';
+@import 'fontawesome/fontawesome';
+$fa-font-path: '/public/fonts';
+@import 'fontawesome/fa-solid';
 
 body {
   background-color: $white;
@@ -117,4 +120,5 @@ textarea {
 
 @import 'Components';
 @import 'Home';
+@import 'Sessions';
 

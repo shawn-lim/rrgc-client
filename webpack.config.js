@@ -17,6 +17,7 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
+    contentBase: path.resolve(__dirname, 'public'),
     // Proxy Settings used for development. Redirect all local requests to a given API server.
     proxy: {
       '/api': {
