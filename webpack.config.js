@@ -4,24 +4,27 @@ var CopyWebpackPlugin = require('copy-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin'); // automatically create and include javascript file
 
 module.exports = {
-  entry: './app/index.jsx',
+  entry: './app/index.js',
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'index_bundle.js'
+    path: path.resolve(__dirname, '../rrgc-server/public'),
+    filename: 'index_bundle.js',
+    publicPath: '/'
   },
+  devtool: 'source-map',
   externals: {
     'react': 'React',
     'react-dom': 'ReactDOM'
   },
   devServer: {
     historyApiFallback: true,
+    contentBase:  path.resolve(__dirname, 'dist'),
     // Proxy Settings used for development. Redirect all local requests to a given API server.
-    //proxy: {
-      //'/api': {
-        //target: 'http://localhost:8000',
-        //secure: false
-      //},
-    //}
+    proxy: {
+      '/api': {
+        target: 'http://localhost:8000',
+        secure: false
+      },
+    }
   },
   module: {
     rules: [
@@ -32,7 +35,8 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          plugins: ["transform-object-rest-spread"]
         }
       },
       {
